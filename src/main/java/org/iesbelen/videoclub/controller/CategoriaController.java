@@ -13,15 +13,16 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/categorias")
 public class CategoriaController {
+
     private final CategoriaService categoriaService;
 
     public CategoriaController(CategoriaService categoriaService) {
         this.categoriaService = categoriaService;
     }
 
-    @GetMapping({"","/"})
+    @GetMapping({"", "/"})
     public List<Categoria> all() {
-        log.info("Accediendo a todas las categorías");
+        log.info("Accediendo a todas las categorias");
         return this.categoriaService.all();
     }
 

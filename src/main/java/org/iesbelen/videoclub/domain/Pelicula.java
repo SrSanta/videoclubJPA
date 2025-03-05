@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.Year;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -32,7 +31,7 @@ public class Pelicula {
 
     @Column(name = "anyo_lanzamiento")
     @JsonFormat(pattern = "yyyy",  shape = JsonFormat.Shape.STRING)
-    private Year anyoLanzamiento;
+    private Date anyoLanzamiento;
 
     @ManyToOne()
     @JoinColumn(name = "id_idioma", nullable = false)
@@ -45,7 +44,6 @@ public class Pelicula {
             name = "pelicula_categoria",
             joinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id_pelicula"),
             inverseJoinColumns = @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria"))
-    @JsonIgnore
     Set<Categoria> categorias = new HashSet<>();
 
 }
